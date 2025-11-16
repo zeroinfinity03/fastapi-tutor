@@ -7,18 +7,35 @@ DATABASE_URL = "sqlite:///./test.db"
 
 engine = create_engine(DATABASE_URL, connect_args={'check_same_thread': False})
 
+
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-
 Base = declarative_base()
+# Declarative_base: Python classes se hi table define kar sakte ho.
+# Base ek common parent class hai – isse inherit karke hum apne ORM models / tables define karte hain.
 
 
 
 
 
-# Sessionmaker se aap database session bana kar queries execute kar sakte ho!
-# har ek session me hum operations karte hain DB pe jaise ki add, update, delete, query etc.
-# database ka koi bhi operation happens within a particular session. 
+
+'''
+A factory in Python is simply a function (ya callable) that creates and returns objects. It’s a design pattern, not a language feature.
+
+# sessionmaker is a special factory in SQLAlchemy – it creates a { configured Session class } for us.
+# Yahan sessionmaker(...) se jo configured Session class/factory milti hai, usko hum SessionLocal naam de rahe hain.
+
+Session kya hai?
+Session is SQLAlchemy’s core class for database interaction:
+	•	query karna
+	•	data insert / update / delete
+	•	transactions commit / rollback
+	•	session close karna
+
+Ye sab Session object se hota hai and we will make that object in main.py like: db = SessionLocal()
+
+'''
+
 
 
 
@@ -35,7 +52,7 @@ autocommit = True
 Matlab: Jaise hi aap koi change karte ho, wo automatically save (commit) ho jata hai.
 '''
 
-# Declarative_base: Python classes se hi table define kar sakte ho.
+
 
 
 
