@@ -28,6 +28,7 @@ def create_employee(db: Session, employee: schemas.EmployeeCreate):
     db.refresh(db_employee)
     return db_employee
 
+#creating employee needs full employee details
 
 def update_employee(db: Session, emp_id: int, employee: schemas.EmployeeUpdate):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
