@@ -10,25 +10,28 @@ def get_employees(db: Session):
 # yahan hum Employee table (models.Employee) par query chala kar sab rows le rahe hain.
 
 
-def get_employee(db: Session, emp_id: int):
-    return (
-        db
-        .query(models.Employee)
-        .filter(models.Employee.id == emp_id)
-        .first()
-    )
 
+
+# 1 employee
+def get_employee(db: Session, emp_id: int):
+    return (db.query(models.Employee).filter(models.Employee.id == emp_id).first())
+
+
+
+
+
+#creating employee needs full employee details
 
 def create_employee(db: Session, employee: schemas.EmployeeCreate):
-    db_employee = models.Employee(
-        name=employee.name, email=employee.email
-    )
+    db_employee = models.Employee(name=employee.name, email=employee.email)
     db.add(db_employee)
     db.commit()
     db.refresh(db_employee)
     return db_employee
 
-#creating employee needs full employee details
+
+
+
 
 def update_employee(db: Session, emp_id: int, employee: schemas.EmployeeUpdate):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
@@ -40,12 +43,16 @@ def update_employee(db: Session, emp_id: int, employee: schemas.EmployeeUpdate):
     return db_employee
 
 
+
 def delete_employee(db: Session, emp_id: int):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
     if db_employee:
         db.delete(db_employee)
         db.commit()
     return db_employee
+
+
+
 
 
 
