@@ -73,3 +73,12 @@ class Employee(Base):
 
 
 '''
+
+
+'''
+1. databse
+2. models
+3. schemas
+4. crud
+5. main
+'''
