@@ -17,14 +17,18 @@ Base = declarative_base()
 
 '''
 What is a factory in Python?
-A factory is any callable (function or class) that creates and returns objects. It's a design pattern, not a language feature.
-Factory function: A function that returns objects.
-Factory class: A class whose instances (or methods) create objects when called.
+A factory is any callable (function or class) that creates and returns objects. 
+It's a design pattern, not a language feature.
+
+sessionmaker is a special Session factory (a callable) in SQLAlchemy.
+{We will see what is Session in a bit.}
+Since its a Session factory, we call it to get Session objects.
+
+When we call SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False),
+it returns a configured Session factory object (built from the Session class), and we store that in SessionLocal.
+Later, when we call db = SessionLocal(), it creates a new Session object (db).
 
 
-sessionmaker is a special factory fn in SQLAlchemy which returns an object of type "Session class".
-note that the Session Class has these features: bind=engine, autoflush=False, autocommit=False
-and the name of that Session Class is SessionLocal
 
 Session class kya hai?
 Session is SQLAlchemy ka core class for database interaction:
