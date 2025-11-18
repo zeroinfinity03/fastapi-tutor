@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 import models, schemas
 
 
+# get all the employees
 def get_employees(db: Session):
     return db.query(models.Employee).all()
 # database ka koi bhi operation happens within a particular session. 
@@ -12,7 +13,10 @@ def get_employees(db: Session):
 
 
 
-# 1 employee
+
+
+
+# get 1 employee
 def get_employee(db: Session, emp_id: int):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
     return db_employee
@@ -20,8 +24,8 @@ def get_employee(db: Session, emp_id: int):
 
 
 
-# creating employee needs full employee details
 
+# creating employee so we will needs full employee details
 def create_employee(db: Session, employee: schemas.EmployeeCreate):
     db_employee = models.Employee(name=employee.name, email=employee.email)
     db.add(db_employee)
@@ -34,6 +38,7 @@ def create_employee(db: Session, employee: schemas.EmployeeCreate):
 
 
 
+# updating employee
 def update_employee(db: Session, emp_id: int, employee: schemas.EmployeeUpdate):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
     if db_employee:
@@ -48,6 +53,7 @@ def update_employee(db: Session, emp_id: int, employee: schemas.EmployeeUpdate):
 
 
 
+# deleting employee
 def delete_employee(db: Session, emp_id: int):
     db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
     if db_employee:

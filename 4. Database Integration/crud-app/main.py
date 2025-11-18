@@ -25,7 +25,11 @@ def get_db():
 
 
 # endpoints
-# 1. create an employee here we will return the created employee to user
+# When we create endpoint it means that we will have to return the results to the users.
+#  so we have to use EmployeeOut schema wherever we are returning the employee data.
+
+
+# 1. create an employee 
 @app.post('/employees', response_model=schemas.EmployeeOut)   
 def create_employee(employee: schemas.EmployeeCreate, db: Session = Depends(get_db)):
     return crud.create_employee(db, employee)
@@ -40,6 +44,7 @@ def get_employees(db: Session = Depends(get_db)):
 
 
 
+
 # 3. get specific employee
 @app.get('/employees/{emp_id}', response_model=schemas.EmployeeOut)
 def get_employee(emp_id: int, db: Session = Depends(get_db)):
@@ -47,6 +52,7 @@ def get_employee(emp_id: int, db: Session = Depends(get_db)):
     if employee is None:
         raise HTTPException(status_code=404, detail='Employee Not Found')
     return employee
+
 
 
 
