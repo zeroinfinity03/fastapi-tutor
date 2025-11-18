@@ -3,7 +3,7 @@ from typing import Optional
 
 
 class EmployeeBase(BaseModel):
-    name: str
+    name: str = Field(..., min_length=3, max_length=30, description="Name must be 3-30 chars")
     email: EmailStr
 
 
