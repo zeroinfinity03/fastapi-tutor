@@ -38,7 +38,7 @@ class EmployeeUpdate(EmployeeBase):
 
 
 
-# When user wants to read the data then we send the data 
+# When user wants to read the data then we send the data so this will be used to send the data.
 # but we have to send all the fields of employee including id
 class EmployeeOut(EmployeeBase):
     id: int
