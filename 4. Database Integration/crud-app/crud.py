@@ -14,9 +14,8 @@ def get_employees(db: Session):
 
 # 1 employee
 def get_employee(db: Session, emp_id: int):
-    return (
-        db.query(models.Employee).filter(models.Employee.id == emp_id).first()
-        )
+    db_employee = db.query(models.Employee).filter(models.Employee.id == emp_id).first()
+    return db_employee
 
 
 
