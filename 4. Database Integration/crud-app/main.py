@@ -26,7 +26,7 @@ def get_db():
 
 # endpoints
 # When we create endpoint it means that we will have to return the results to the users.
-# so we have to use EmployeeOut schema wherever we are returning the employee data.
+# so we have to use EmployeeOut schema everywhere we are returning the employee data.
 
 
 # 1. create an employee 
