@@ -74,10 +74,18 @@ def delete_employee(emp_id: int, db: Session = Depends(get_db)):
     employee = crud.delete_employee(db, emp_id)
     if employee is None:
         raise HTTPException(status_code=404, detail='Employee Not Found')
-    # return employee
     return {'detail': 'Employee Deleted'}
 
 
 
+# if we dont want to return the entire employee details then: response_model=Schemas.EmployeeOut
 
+'''
+@app.delete('/employees/{emp_id}', response_model=Schemas.EmployeeOut)
+def delete_employee(emp_id: int, db: Session = Depends(get_db)):
+    employee = crud.delete_employee(db, emp_id)
+    if employee is None:
+        raise HTTPException(status_code=404, detail='Employee Not Found')
+    # return employee
 
+'''
