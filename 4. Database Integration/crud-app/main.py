@@ -1,7 +1,9 @@
+
 import models, schemas, crud
+from database import engine, SessionLocal, Base
+
 from fastapi import FastAPI, HTTPException, Depends
 from sqlalchemy.orm import Session
-from database import engine, SessionLocal, Base
 from typing import List
 
 Base.metadata.create_all(bind=engine)
@@ -9,26 +11,32 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 
-# dependency with the DB
+# apis se we establish a connection to the DB within the Session.
+# So there is a dependency b/w our apis and DB
+# and we need to specify that dependency.
 def get_db():
     db = SessionLocal()
     try:
-        yield db
+        yield db  # if everything goes well, ye Session object hum api endpoint ko de denge.
     finally:
         db.close()
 
 
+
+
 # endpoints
-# 1. create an employee
-@app.post('/employees', response_model=schemas.EmployeeOut)
+# 1. create an employee here we will return the created employee
+@app.post('/employees', response_model=schemas.EmployeeOut)   
 def create_employee(employee: schemas.EmployeeCreate, db: Session = Depends(get_db)):
     return crud.create_employee(db, employee)
+
 
 
 # 2. get all employees
 @app.get('/employees', response_model=List[schemas.EmployeeOut])
 def get_employees(db: Session = Depends(get_db)):
     return crud.get_employees(db)
+
 
 
 # 3. get specific employee
@@ -50,6 +58,7 @@ def update_employee(emp_id: int, employee: schemas.EmployeeUpdate, db: Session =
     return db_employee
 
 
+
 # 5. delete an employee
 @app.delete('/employees/{emp_id}', response_model=dict)
 def delete_employee(emp_id: int, db: Session = Depends(get_db)):
@@ -58,3 +67,8 @@ def delete_employee(emp_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail='Employee Not Found')
     # return employee
     return {'detail': 'Employee Deleted'}
+
+
+
+
+
