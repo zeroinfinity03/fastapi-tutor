@@ -26,7 +26,7 @@ def get_db():
 
 # endpoints
 # When we create endpoint it means that we will have to return the results to the users.
-#  so we have to use EmployeeOut schema wherever we are returning the employee data.
+# so we have to use EmployeeOut schema wherever we are returning the employee data.
 
 
 # 1. create an employee 
@@ -78,7 +78,7 @@ def delete_employee(emp_id: int, db: Session = Depends(get_db)):
 
 
 
-# if we dont want to return the entire employee details then: response_model=Schemas.EmployeeOut
+# if we want to return the entire employee details then: response_model=Schemas.EmployeeOut
 
 '''
 @app.delete('/employees/{emp_id}', response_model=Schemas.EmployeeOut)
