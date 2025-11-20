@@ -8,6 +8,9 @@ print('Loaded the Model')
 
 # users se data json me aayega and when it comes to this fn call, 
 # we will get it as a dict and this will return a floting value the actual predicted value.
+# also our model expects a numpy 2d array as input to make predictions.
+# json -> dict -> numpy 2d array -> model prediction -> float
+
 def make_prediction(data: dict) -> float:
     features = np.array([
         [
