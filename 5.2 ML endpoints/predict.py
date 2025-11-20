@@ -25,6 +25,10 @@ def make_prediction(data: dict) -> float:
         ]
     ])
     return saved_model.predict(features)[0]
+# 2 brackets [[]] so 2d numpy array but the inside bracket is only 1[] => so 1 row and 8 columns
+# 2d numpy arry size = (1, 8)
+# predict karte time user do data bhejega woh multiple rows/record toh bhejega nhi, so 1 row hi hoga hamesha with all the features/columns data.
+
 
 
 def make_batch_predictions(data: List[dict]) -> np.array:
