@@ -6,7 +6,8 @@ saved_model = joblib.load('model.joblib')
 print('Loaded the Model')
 
 
-# users se data json me aayega and when it comes to this fn call, we will get it as a dict.
+# users se data json me aayega and when it comes to this fn call, 
+# we will get it as a dict and this will return a floting value the actual predicted value.
 def make_prediction(data: dict) -> float:
     features = np.array([
         [
