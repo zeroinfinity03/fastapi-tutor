@@ -29,6 +29,9 @@ def make_prediction(data: dict) -> float:
 # 2d numpy arry size = (1, 8)
 # predict karte time user do data bhejega woh multiple rows/record toh bhejega nhi, so 1 row hi hoga hamesha with all the features/columns data.
 
+# sckit learn returns prediction in this format: array([ 452600.55, 4524322.45, 45242.32 ])
+# but since we will send only 1 record all the time, we will get only 1 value in the array:  array([ 452600.55]) => so we do [0] to get the first value from the array.
+
 
 
 def make_batch_predictions(data: List[dict]) -> np.array:
@@ -46,4 +49,5 @@ def make_batch_predictions(data: List[dict]) -> np.array:
         for x in data
     ])
     return saved_model.predict(X)
+
 
