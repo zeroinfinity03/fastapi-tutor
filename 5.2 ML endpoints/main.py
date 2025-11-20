@@ -45,7 +45,7 @@ def predict(user_input: InputSchema):
 def batch_predict(user_inputs: List[InputSchema]):
     predictions = make_batch_predictions([x.model_dump() for x in user_inputs])
     # taking each InputSchema object from the list and converting it into dict using model_dump()
-    return [OutputSchema(predicted_price=round(prediction, 2)) for prediction in predictions]
+    return [OutputSchema(predicted_price = prediction) for prediction in predictions]
 
 
 
