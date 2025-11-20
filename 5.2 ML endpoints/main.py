@@ -17,6 +17,11 @@ def predict(user_input: InputSchema):
     prediction = make_prediction(user_input.model_dump())
     return OutputSchema(predicted_price=round(prediction, 2))
 
+# In predict.py make_prediction fn expects inputs as a dict, 
+# we have user_input in json, so we do user_input.model_dump() to convert into dict.
+
+
+
 
 
 @app.post('/batch_prediction', response_model=List[OutputSchema])
