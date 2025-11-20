@@ -58,4 +58,23 @@ def make_batch_predictions(data: List[dict]) -> np.array:
     return saved_model.predict(X)
 
 
+# Data will come in this format: data = [ {}, {}, {} ...]
+# Each {} is a dict representing 1 record. 
+# We have to convert this list of dicts into a 2d numpy array.
+# So each dict will become 1 row in the 2d numpy array.
 
+'''
+[
+
+[f1, f2, f3,....] => 1st record (1st dict)
+[f1, f2, f3,....] => 2nd record (2nd
+.
+.
+and so on...
+
+]
+'''
+
+
+
+# So we write list comprehension:  np.array[[x, for x in data]]
