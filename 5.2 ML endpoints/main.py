@@ -19,6 +19,23 @@ def predict(user_input: InputSchema):
 
 # In predict.py make_prediction fn expects inputs as a dict, 
 # we have user_input in json, so we do user_input.model_dump() to convert into dict.
+# we get the prediction as a float value from make_prediction fn.
+# Now, we have to return the response in the form of OutputSchema. 
+
+
+'''
+OR:
+
+@app.post('/prediction', response_model=OutputSchema)
+def predict(user_input: InputSchema):
+    prediction = make_prediction(user_input.model_dump())
+    
+    # FastAPI automatically is dict ko OutputSchema mein convert kar dega!
+    return {"predicted_price": prediction} 
+
+'''
+
+
 
 
 

@@ -51,3 +51,4 @@ def make_batch_predictions(data: List[dict]) -> np.array:
     return saved_model.predict(X)
 
 
+
