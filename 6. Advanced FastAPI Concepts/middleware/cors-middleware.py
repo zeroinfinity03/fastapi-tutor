@@ -1,3 +1,12 @@
+
+
+# cors se we can allow or disallow requests from different origins (domains)
+# by default, browsers block requests from different origins for security reasons.
+# but with CORS middleware, we can specify which origins are allowed to access our API.
+
+
+
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -13,4 +22,10 @@ app.add_middleware(
     allow_headers=['*']
 )
 
+
 # define endpoints
+
+
+
+
+
