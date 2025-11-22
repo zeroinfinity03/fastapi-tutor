@@ -48,3 +48,12 @@ def main():
 
 
 
+
+'''
+
+Middleware	                   Kab Kaam Karta Hai?	                          Kya Karta Hai?
+HTTPS Redirect	             Request Aate Hi (Entry Gate)	         HTTP ko rok kar HTTPS par bhejta hai.
+CORS	                     Aate aur Jate Dono Time	             Origin check karta hai aur Headers add karta hai.
+GZip	                   Response Jate Waqt (Exit Gate)	         Bada data compress (chota) karta hai.
+
+'''
