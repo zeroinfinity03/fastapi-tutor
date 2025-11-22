@@ -22,3 +22,6 @@ async def hello():
     for _ in range(10000000):
         pass
     return {'message': 'Hello World!'}
+
+
+
