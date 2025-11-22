@@ -57,3 +57,7 @@ CORS	                     Aate aur Jate Dono Time	             Origin check kart
 GZip	                   Response Jate Waqt (Exit Gate)	         Bada data compress (chota) karta hai.
 
 '''
+
+
+# Typical flow of a request with middleware:
+# User -> requests ->MW-> response headers -> MW->response back to user

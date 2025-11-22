@@ -1,6 +1,14 @@
+
+# Here were just implemtenting this:
+
+# User -> Request -> MW (Start Time) -> API -> MW (End Time) -> Response -> User
+
+
+
 import time
 from fastapi import FastAPI, Request
 from starlette.middleware.base import BaseHTTPMiddleware
+
 
 app = FastAPI()
 
