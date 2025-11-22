@@ -40,6 +40,7 @@ app.add_middleware(
 app.add_middleware(HTTPSRedirectMiddleware)
 
 
+
 @app.get("/")
 def main():
     return {"message": "I am using CORS, GZip, and HTTPS Redirect all together!"}
