@@ -18,7 +18,19 @@ app.add_middleware(
 )
 
 
+
+# allowed_origins: list of websites (origins) allowed to make requests to this API
+# these can be your own frontends or any trusted third-party websites
+
+# allowed_headers: from the list of allowed_origins which headers are allowed in requests.
+
+
+
+
+
 # define endpoints
+
+
 
 
 
