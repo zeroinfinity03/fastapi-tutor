@@ -16,3 +16,4 @@ def get_settings():
 @app.get('/config')
 def get_conifig(settings: Settings = Depends(get_settings)):
     return {'api_key': settings.api_key}
+
