@@ -15,6 +15,7 @@ def create_access_token(data: dict):
     payload = data.copy()
     payload.update({'exp': expire})
     return jwt.encode(header, payload, SECRET_KEY).decode('utf-8')
+# algo(header), data(payload), & secret_key will generate the token.
 
 
 def verify_token(token: str):
