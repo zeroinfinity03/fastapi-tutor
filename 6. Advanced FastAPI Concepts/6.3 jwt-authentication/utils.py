@@ -1,4 +1,5 @@
 from passlib.context import CryptContext
+# passlib is used for password hashing
 
 pwd_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
 
@@ -10,12 +11,20 @@ fake_user_db = {
 }
 
 
+# now we will define actual utils fn.
+
+# So above we had a user_db with hashed password.
+# Now we will create a fn to return user data.
+
 def get_user(username: str):
     user = fake_user_db.get(username)
     return user
 
 
+
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
+
+
 
 

@@ -10,7 +10,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
 
 @app.post('/token')
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    user_dict = get_user(form_data.username)
+    user_dict = get_user(form_data.username)  # check utils.py
     if not user_dict:
         raise HTTPException(400, detail='Invalid Username')
     if not verify_password(form_data.password, user_dict['hashed_password']):

@@ -4,6 +4,8 @@ from app.main import app
 client = TestClient(app)
 
 
+# we will test 2 cases: one where the user is eligible for a loan and one where they are not.
+
 def test_eligibility_pass():
     payload = {
         'income': 60000,

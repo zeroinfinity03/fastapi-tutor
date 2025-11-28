@@ -23,3 +23,6 @@ def get_api_key(api_key: str = Header(...)):
 @app.get('/get-data')
 def get_data(api_key: str = Depends(get_api_key)):
     return {'output': 'Access granted!'}
+
+
+

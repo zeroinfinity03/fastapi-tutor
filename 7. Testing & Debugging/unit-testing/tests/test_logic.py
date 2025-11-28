@@ -20,3 +20,5 @@ def test_unemployed_user():
 
 def test_boundary_case():
     assert is_eligible_for_loan(50000, 21, 'employed') == True
+
+
