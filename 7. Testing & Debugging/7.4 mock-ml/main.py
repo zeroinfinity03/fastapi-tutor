@@ -15,7 +15,7 @@ class IrisFlower(BaseModel):
 
 @app.post('/predict')
 def predict(data: IrisFlower):
-    features = np.array([
+    features = np.array([                   #we have to convert input data into numpy array
         [
             data.SepalLengthCm,
             data.SepalWidthCm,
