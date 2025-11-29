@@ -19,3 +19,4 @@ def check_eligibility(applicant: Applicant):
         employment_status=applicant.employment_status
     )
     return {'eligible': eligibility}
+

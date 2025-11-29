@@ -13,8 +13,10 @@ def test_eligibility_pass():
         'employment_status': 'employed'
     }
     response = client.post('/loan-eligibility', json=payload)
+    # if the user is eligible, we expect a 200 status code and a response indicating eligibility.
     assert response.status_code == 200
     assert response.json() == {'eligible': True}
+
 
 
 def test_eligibility_fail():
@@ -26,3 +28,5 @@ def test_eligibility_fail():
     response = client.post('/loan-eligibility', json=payload)
     assert response.status_code == 200
     assert response.json() == {'eligible': False}
+
+    
